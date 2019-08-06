@@ -1,14 +1,21 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 html, * {
     box-sizing: border-box;
     font-family: helvetica;
     margin: 2vmin;
+    border: 2%;
 }
 
 body {
     display: flex;
+    /* flex-direction: column; */
     height: 80vh;
     justify-content: center;
+    /* align-items: center; */
+
 }
 
 header h1 {
@@ -31,23 +38,18 @@ header {
     padding: 10px; */
 }
 
+
 #board {
     display: grid;
     grid-template-columns: 13vw 13vw 13vw 13vw;
     grid-template-rows: 13vw 13vw 13vw 13vw;
     background-color: blanchedalmond;
     margin: auto;
-    width: 56%;
-    align-content: center;
-    justify-content: center;
+    width: 59%;
+    /* align-content: center;
+    justify-content: center; */
     border-width: 40%;
     grid-gap: 0px;
-    /* padding: 3em; */
-    /* border-color: black;
-    grid-gap: 20px 20px;
-    border-bottom-color: black;
-    border-bottom: 5px solid black;
-     */
 }
 
 .cell {
@@ -56,6 +58,7 @@ header {
     align-items: center;
     border: 2px solid grey;
     margin: 0;
+    font: italic bold 2.5em helvetica;
 
 }
 

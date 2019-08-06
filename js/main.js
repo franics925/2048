@@ -11,15 +11,30 @@ console.log('sanity check');
 
 
 /*----- event listeners -----*/ 
+document.onkeydown = function(event) {
+    switch (event.keyCode) {
+       case 37:
+            console.log('Left key pressed');
+            //handle left click
+          break;
+       case 38:
+            console.log('Up key pressed');
+            //handle up click
+          break;
+       case 39:
+            console.log('Right key pressed');
+            //handle right click
+          break;
+       case 40:
+            console.log('Down key pressed');
+            //handle down click
+          break;
+    }
+};
 
-    //LEFT ARROW '37'
-// document.onkeydown();
-//     //UP ARROW '38'
-// document.onkeydown();
-//     //RIGHT ARROW '39'
-// document.onkeydown();
-//     //DOWN ARROW '40'
-// document.onkeydown();
+
+// RESET BUTTON : TODO: CONNECT TO INIT
+document.getElementById('reset').addEventListener("click", console.log('reset button clicked'));
 
 
 
@@ -40,7 +55,6 @@ function init() {
     score = 0;
     render();
 }
-
 
 
 function makeMove(click) {
