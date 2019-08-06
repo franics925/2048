@@ -18,6 +18,11 @@ body {
 
 }
 
+main div p {
+    font-size: 14px;
+    margin-bottom: 6%;
+}
+
 header h1 {
     align-items: center;
 }

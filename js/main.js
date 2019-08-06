@@ -14,30 +14,35 @@ console.log('sanity check');
     document.onkeydown = function(event) {
         switch (event.keyCode) {
         case 37:
-                console.log('Left key pressed');
                 //handle left click
+                moveLeft();
             break;
         case 38:
-                console.log('Up key pressed');
                 //handle up click
+                moveUp()
             break;
         case 39:
-                console.log('Right key pressed');
                 //handle right click
+                moveRight();
             break;
         case 40:
-                console.log('Down key pressed');
                 //handle down click
+                moveDown();
             break;
         }
     };
 
         // RESET BUTTON : TODO: CONNECT TO INIT
-    document.querySelector('#reset').addEventListener("click", function() {console.log('reset button clicked')});
+    document.querySelector('#reset').addEventListener("click", function() {
+        console.log('reset button clicked');
+        init();
+    });
 
 
 
 /*----- functions -----*/
+
+init();
 
     function init() {
         board = [
@@ -51,13 +56,39 @@ console.log('sanity check');
         render();
     }
 
-
-    function makeMove(click) {
-
+    function moveLeft(click) {
+        console.log('Left key pressed');
+        //push all non empty tiles into next available open cell starting with left most value
     }
+    
+    function moveUp(click) {
+        console.log('Up key pressed');
+        //push all non empty tiles into next available open cell starting with top most value
+    }
+    
+    function moveRight(click) {
+        console.log('Right key pressed');
+        //push all non empty tiles into next available open cell starting with right most value
+    }
+    
+    function moveDown(click) {
+        console.log('Down key pressed');
+        //push all non empty tiles down into next available open cell starting with bottom most value
+    }
+    
 
+    
     function render() {
-        board.array.forEach(function(sq, idx) {
+        board.forEach(function(rowArr, rowIdx) {
+            rowArr.forEach(function(cell, colIdx) {
+                let marker = document.getElementById(`r${rowIdx}c${colIdx}`);
+                console.log(`rowArr: ${rowArr} ; rowIdx: ${rowIdx} ; cell: ${cell} ;  colIdx: ${colIdx}`);
+                console.log(marker);
+
+
+                // marker.checkForMatchColumn();
+                // marker.checkForMatchRow();
+            });
 
         });
 
