@@ -49,9 +49,15 @@ init();
             [0,0,0,0], // ROW 2
             [0,0,0,0], // ROW 3
             [0,0,0,0], // ROW 4
+            // [null, null, null, null],
+            // [null, null, null, null],
+            // [null, null, null, null],
+            // [null, null, null, null]
         ];
         movesMade = 0;
         score = 0;
+        getRandomTwo();
+        getRandomTwo();
         render();
     }
 
@@ -59,23 +65,15 @@ init();
         board.forEach(function(rowArr, rowIdx) {
             rowArr.forEach(function(cell, colIdx) {
                 let div = document.getElementById(`r${rowIdx}c${colIdx}`);
-                div.style.backgroundColor = 'yellow';
-
-                console.log(`rowArr: ${rowArr} ; rowIdx: ${rowIdx} ; cell: ${cell} ;  colIdx: ${colIdx}`);
-                console.log(div.id);
-
-
-        // $('board').each(function(idx) {
-        //     console.log( idx + ': ' + this.innerHTML );
-        //     });
-
-                // div.checkForMatchColumn();
-                // div.checkForMatchRow();
+                div.style.backgroundColor = '#iiiiii';
+                if (div.cell !== 0) {
+                    div.textContent = cell;
+                }
             });
 
         });
     }
-    function moveLeft(click) {
+    function moveLeft() {
         console.log('Left key pressed');
         direction = 'left';
         movesMade += 1;
@@ -85,10 +83,12 @@ init();
                 
             });
         });
-
+        getRandomTwo();
+        console.log(board);
+        render();
     }
     
-    function moveUp(click) {
+    function moveUp() {
         console.log('Up key pressed');
         direction = 'up';
         movesMade += 1;
@@ -97,10 +97,12 @@ init();
             rowArr.forEach(function(cell, colIdx) {
             });
         });
-
+        getRandomTwo();
+        console.log(board);
+        render();
     }
     
-    function moveRight(click) {
+    function moveRight() {
         console.log('Right key pressed');
         direction = 'right';
         movesMade ++;
@@ -109,10 +111,12 @@ init();
             rowArr.forEach(function(cell, colIdx) {
             });
         });
-
+        getRandomTwo();
+        console.log(board);
+        render();
     }
     
-    function moveDown(click) {
+    function moveDown() {
         console.log('Down key pressed');
         direction = 'down';
         movesMade += 1;
@@ -121,20 +125,15 @@ init();
             rowArr.forEach(function(cell, colIdx) {
             });
         });
-
-    }
-
-    function genRadomTwo() {
-        // generates two intergers '2' in two random cells on the board
-        board[Math.floor(Math.random() * 3)][Math.floor(Math.random() * 3)] = 2
+        getRandomTwo();
         console.log(board);
-        board.forEach(function(rowArr, rowIdx) {
-            rowArr.forEach(function(cell, colIdx) {
-                console.log(`r${rowIdx}c${colIdx}`)
-            });
-        });
-
+        render();
     }
+
+    function getRandomTwo() {
+        // generates two intergers '2' in two random cells on the board
+        board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)] = 2
+      }
     
 
 
@@ -148,10 +147,6 @@ init();
 
     function addAndDelete() {
 
-
-    }
-
-    function addNewNumber() {
 
     }
 
