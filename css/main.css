@@ -20,7 +20,7 @@ body {
 
 main div p {
     font-size: 14px;
-    margin-bottom: 6%;
+    margin-bottom: %;
 }
 
 header h1 {
@@ -46,8 +46,8 @@ header {
 
 #board {
     display: grid;
-    grid-template-columns: 13vw 13vw 13vw 13vw;
-    grid-template-rows: 13vw 13vw 13vw 13vw;
+    grid-template-columns: 13vh 13vh 13vh 13vh;
+    grid-template-rows: 13vh 13vh 13vh 13vh;
     margin: auto;
     width: 59%;
     /* align-content: center;
