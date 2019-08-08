@@ -135,8 +135,6 @@ init();
         board[Math.floor(Math.random() * 4)][Math.floor(Math.random() * 4)] = 2
       }
     
-
-
     function checkForMatchRow() {
 
     }
@@ -145,8 +143,12 @@ init();
 
     }
 
-    function addAndDelete() {
+    function compare(a,b) {
+        if 
+    }
 
+
+    function addAndDelete() {
 
     }
 
@@ -166,3 +168,42 @@ init();
     //     // all of your app's js goes within this function
     //     alert("Everything is ready, let's do this");
     // });
+
+
+
+
+
+
+
+
+    let arr = [8, 2, 0, 2, 4, 0, 2, 2, 4, 8];
+
+let leftShift = (arr) => {
+  // remove all zeroes from the array
+  let newArr = arr.filter(num => num !== 0);
+  // loop through the remaining array, checking each set of items once
+  for (let i = 0; i < newArr.length; i++) {
+    // if two numbers are the same, add them
+    if (newArr[i] === newArr[i+1]) {
+      newArr[i] += newArr[i];
+      newArr[i+1] = 0;
+      // increment value of i again if there's a match, because those numbers can no longer be matched again
+      i++
+    }
+  }
+  // remove the sandwiched zeroes again, in order to "push" all numbers leftward
+  newArr = newArr.filter(num => num !== 0);
+  // add zeroes at the end to fill the array back up to the proper size
+  while (newArr.length < arr.length) newArr.push(0);
+  return newArr;
+}
+
+console.log(arr);
+let shift = leftShift(arr);
+console.log(shift);
+let shiftTwo = leftShift(shift);
+console.log(shiftTwo);
+let shiftThree = leftShift(shiftTwo);
+console.log(shiftThree);
+let shiftFour = leftShift(shiftThree);
+console.log(shiftFour);
