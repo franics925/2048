@@ -25,7 +25,6 @@ document.onkeydown = function(event) {
     }
 };
 
-    // RESET BUTTON : TODO: CONNECT TO INIT
 document.querySelector('#reset').addEventListener("click", function() {
     console.log('reset button clicked');
     init();
@@ -49,9 +48,7 @@ function init() {
     render();
 }
 
-// Use DOM to make changes to visualized board
 function render() {
-    checkGameOver();
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
             let div = document.getElementById(`r${rowIdx}c${colIdx}`);
@@ -62,6 +59,7 @@ function render() {
         });
 
     });
+    checkGameOver();
 }
 
 function moveLeft() {
@@ -175,29 +173,47 @@ function shiftRight() {
 
 
 function checkGameOver() {
-    let openSpaces = 0;
-    let potentialPlays = 0;
-
+    let openSpaces = [];
+    let matches = [];
     board.forEach(function(rowArr, rowIdx) {
-        rowArr.forEach(function(cell, colIdx) {
-            if (cell ===0) {
-                openSpaces += 1;
-            }
-        });
+        if (rowArr.includes(0)) {
+            rowArr.forEach(function(cell, idx) {
+                if (cell === 0) {
+                    openSpaces.push(1)
+                }
+            })
+        }
     });
-    if (openSpaces === 0 && potentialPlays === 0) {
+    // check board for horizontal matches
+    board.forEach(function(rowArr, rowIdx) {
+        row = board[rowIdx];
+        let newArr = row.filter(num => num !== 0);
+        for (let i = 0; i < newArr.length; i++) {
+            if (newArr[i] === newArr[i+1]) {
+                matches.push(1);
+            }
+        }
+    });
+    // check board for vertical matches
+    let newBoard = rotate(board.reverse());
+    newBoard.forEach(function(rowArr, rowIdx) {
+        row = board[rowIdx];
+        let newArr = row.filter(num => num !== 0);
+        for (let i = 0; i < newArr.length; i++) {
+            if (newArr[i] === newArr[i+1]) {
+                matches.push(1);
+            }
+        }
+    });
+    let openSpace = openSpaces.includes(1);
+    let matchAvail = matches.includes(1);
+    
+    if (!openSpace && !matchAvail) {
         alert('Game Over');
         init();
     }
-
-    // board.forEach(function(rowArr, rowIdx) {
-    //     row = board[rowIdx];
-    //     // loop through the remaining array, checking each set of items once
-    //     for (let i = 0; i < row.length; i++) {
-    //         // if two numbers are the same, add them
-    //         if (row[i] === row[i+1]) {
-    //             potentialPlays += 1;
-    //         }
-    //     }
-    // });
+    // console.log(matchAvail);
+    // console.log(openSpace);
+    // console.log(openSpaces);
+    // console.log('matches : ' + matches);
 }
