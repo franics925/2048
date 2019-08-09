@@ -1,8 +1,8 @@
 # 2048
-![alt text](https://imgur.com/qK6VMpn "Screenshot")
+![alt text](https://i.imgur.com/qK6VMpn.png)
 
 ## -Getting Started-
-Click (https://franics925.github.io/2048/ "here") to play 2048.
+Click [here](https://github.com/franics925/2048) to play 2048.
 
 ## -Technologies Used-
 JavaScript, HTML, and CSS
