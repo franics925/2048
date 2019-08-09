@@ -12,15 +12,19 @@ document.onkeydown = function(event) {
     switch (event.keyCode) {
     case 37:
             moveLeft();
+            checkGameOver();
         break;
     case 38:
-            moveUp()
+            moveUp();
+            checkGameOver();
         break;
     case 39:
             moveRight();
+            checkGameOver();
         break;
     case 40:
             moveDown();
+            checkGameOver();
         break;
     }
 };
@@ -172,6 +176,29 @@ function shiftRight() {
     });
 }
 
+
+
+
+
+
+function checkGameOver() {
+    let openSpaces = 0;
+    let availableMoves = 0;
+
+    if (openSpaces === 0 && availableMoves == 0) {
+        alert('Game Over');
+        init();
+    }
+
+}
+
+
+
+
+
+
+
+
 function checkGameOver() {
     let counter, potentialPlays;
     let newBoard = board;
@@ -194,14 +221,14 @@ function checkGameOver() {
         });
     });
 
-    // board.forEach(function(rowArr, rowIdx) {
-    //     row = board[rowIdx];
-    //     // loop through the remaining array, checking each set of items once
-    //     for (let i = 0; i < row.length; i++) {
-    //         // if two numbers are the same, add them
-    //         if (row[i] === row[i+1]) {
-    //             potentialPlays += 1;
-    //         }
-    //     }
-    // });
+    board.forEach(function(rowArr, rowIdx) {
+        letrow = board[rowIdx];
+        // loop through the remaining array, checking each set of items once
+        for (let i = 0; i < row.length; i++) {
+            // if two numbers are the same, add them
+            if (row[i] === row[i+1]) {
+                potentialPlays += 1;
+            }
+        }
+    });
 }

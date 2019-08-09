@@ -1,15 +1,13 @@
 # 2048
-https://imgur.com/qK6VMpn
-
 ![alt text](https://imgur.com/qK6VMpn "Screenshot")
 
-## - Getting Started - 
+##Getting Started
 Click (https://franics925.github.io/2048/ "here") to play 2048.
 
-## - Technologies Used - 
+##Technologies Used
 JavaScript, HTML, and CSS
 
-## - Next Steps - 
+##Next Steps
 1. Only allow introduction of a new number when other tiles move
 2. Hide values of 0
 3. Display counter for number of moves made
