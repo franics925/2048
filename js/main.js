@@ -210,9 +210,9 @@ function checkGameOver() {
     }
 
 
-    console.log(potentialPlays);
-    console.log(openSpaces);
-    if (!openSpaces && !playsLeft) {
+    console.log(potentialPlays.length);
+    console.log(openSpaces.length);
+    if (potentialPlays.length === 0 && openSpaces.length === 0) {
         alert('Game Over');
         init();
     }
