@@ -18,6 +18,7 @@ console.log('sanity check');
         switch (event.keyCode) {
         case 37:
                 moveLeft();
+                moveUp();
             break;
         case 38:
                 moveUp()
@@ -49,10 +50,6 @@ init();
             [0,0,0,0], // ROW 2
             [0,0,0,0], // ROW 3
             [0,0,0,0], // ROW 4
-            // [null, null, null, null],
-            // [null, null, null, null],
-            // [null, null, null, null],
-            // [null, null, null, null]
         ];
         movesMade = 0;
         score = 0;
@@ -93,16 +90,6 @@ init();
         // add zeroes at the end to fill the array back up to the proper size
         while (newArr.length < rowArr.length) newArr.push(0);
         board[rowIdx] = newArr;
-
-        // console.log(rowArr);
-        // let shift = leftShift(rowArr);
-        // console.log(shift);
-        // let shiftTwo = leftShift(shift);
-        // console.log(shiftTwo);
-        // let shiftThree = leftShift(shiftTwo);
-        // console.log(shiftThree);
-        // let shiftFour = leftShift(shiftThree);
-        // console.log(shiftFour);
     }
 
     function moveLeft() {
@@ -252,9 +239,7 @@ init();
     function getRandomTwo() {
         // generates two intergers '2' in two random cells on the board
         let openSpaces = [];
-
         board.forEach(function(rowArr, rowIdx) {
-            // debugger;
             if (rowArr.includes(0)) {
                 rowArr.forEach(function(cell, idx) {
                     if (cell === 0) {
@@ -267,47 +252,11 @@ init();
         let selectedSpace = openSpaces[Math.floor(Math.random() * openSpaces.length)]
         board[selectedSpace[0]][selectedSpace[1]] = 2
       }
-    
 
-
-
-    function checkForMatchUp() {
-
-    }
-    function checkForMatchRight() {
-
-    }
-    function checkForMatchDown() {
-
-    }
-
-    
-    function addAndDelete() {
-
-    }
 
     function checkGameOver() {
+        let gameOver = board.forEach(val, idx);
 
+        
     }
 
-
-    //     // the "document ready" approach 
-    // $(document).ready(function() {
-    //     // all of your app's js goes within this function
-    //     alert("Everything is ready, let's do this");
-    // });
-    
-    // // or, the shortcut version
-    // $(function(){
-    //     // all of your app's js goes within this function
-    //     alert("Everything is ready, let's do this");
-    // });
-
-
-
-
-
-
-
-
-    //
