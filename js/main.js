@@ -12,19 +12,15 @@ document.onkeydown = function(event) {
     switch (event.keyCode) {
     case 37:
             moveLeft();
-            checkGameOver();
         break;
     case 38:
             moveUp();
-            checkGameOver();
         break;
     case 39:
             moveRight();
-            checkGameOver();
         break;
     case 40:
             moveDown();
-            checkGameOver();
         break;
     }
 };
@@ -55,6 +51,7 @@ function init() {
 
 // Use DOM to make changes to visualized board
 function render() {
+    checkGameOver();
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
             let div = document.getElementById(`r${rowIdx}c${colIdx}`);
@@ -177,58 +174,30 @@ function shiftRight() {
 }
 
 
-
-
-
-
 function checkGameOver() {
     let openSpaces = 0;
-    let availableMoves = 0;
-
-    if (openSpaces === 0 && availableMoves == 0) {
-        alert('Game Over');
-        init();
-    }
-
-}
-
-
-
-
-
-
-
-
-function checkGameOver() {
-    let counter, potentialPlays;
-    let newBoard = board;
-
+    let potentialPlays = 0;
 
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
             if (cell ===0) {
-                console.log(board[rowIdx][colIdx]);
+                openSpaces += 1;
             }
-            // if (cell === 0) {
-            //     counter += 1;
-            // }
-            
-            // if ((newBoard[rowIdx][colIdx] !== 0) && (newBoard[rowIdx][colIdx] !== newBoard[rowIdx +1][colIdx]) 
-            //     && (newBoard[rowIdx][colIdx] !== newBoard[rowIdx][colIdx + 1])) {
-            //         counter += 1;
-            //         console.log('check');
-            //     }
         });
     });
+    if (openSpaces === 0 && potentialPlays === 0) {
+        alert('Game Over');
+        init();
+    }
 
-    board.forEach(function(rowArr, rowIdx) {
-        letrow = board[rowIdx];
-        // loop through the remaining array, checking each set of items once
-        for (let i = 0; i < row.length; i++) {
-            // if two numbers are the same, add them
-            if (row[i] === row[i+1]) {
-                potentialPlays += 1;
-            }
-        }
-    });
+    // board.forEach(function(rowArr, rowIdx) {
+    //     row = board[rowIdx];
+    //     // loop through the remaining array, checking each set of items once
+    //     for (let i = 0; i < row.length; i++) {
+    //         // if two numbers are the same, add them
+    //         if (row[i] === row[i+1]) {
+    //             potentialPlays += 1;
+    //         }
+    //     }
+    // });
 }
