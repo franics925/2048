@@ -4,7 +4,7 @@ https://imgur.com/qK6VMpn
 ![alt text](https://imgur.com/qK6VMpn "Screenshot")
 
 ## - Getting Started - 
-Click (https://www.google.com "here") to play 2048.
+Click (https://franics925.github.io/2048/ "here") to play 2048.
 
 ## - Technologies Used - 
 JavaScript, HTML, and CSS
