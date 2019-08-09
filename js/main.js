@@ -1,4 +1,3 @@
-
 /*----- constants -----*/ 
 
 /*----- app's state (variables) -----*/ 
@@ -25,7 +24,7 @@ document.onkeydown = function(event) {
     }
 };
 
-
+    // RESET BUTTON : TODO: CONNECT TO INIT
 document.querySelector('#reset').addEventListener("click", function() {
     console.log('reset button clicked');
     init();
@@ -49,7 +48,9 @@ function init() {
     render();
 }
 
+// Use DOM to make changes to visualized board
 function render() {
+    // checkGameOver();
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
             let div = document.getElementById(`r${rowIdx}c${colIdx}`);
@@ -58,9 +59,8 @@ function render() {
                 div.textContent = cell;
             }
         });
-        
+
     });
-    // checkGameOver();
 }
 
 function moveLeft() {
@@ -77,7 +77,7 @@ function moveUp() {
     console.log('Up key pressed');
     direction = 'up';
     board = rotate(board.reverse());
-    shift();
+    shiftRight();
     board = rotate(board.reverse());
     board = rotate(board.reverse());
     board = rotate(board.reverse());
@@ -170,9 +170,6 @@ function shiftRight() {
 // function checkGameOver() {
 //     let openSpaces = [];
 //     let potentialPlays = [];
-//     let spaceOpen = true;
-//     let playsLeft = true;
-//     let newBoard = rotate(board.reverse());
 
 //     board.forEach(function(rowArr, rowIdx) {
 //         rowArr.forEach(function(cell, colIdx) {
@@ -181,33 +178,24 @@ function shiftRight() {
 //             }
 //         });
 //     });
-
+//  // check for horizontal matches
 //     board.forEach(function(rowArr, rowIdx) {
 //         row = board[rowIdx];
-//             // loop through the remaining array, checking each set of items once
 //             for (let i = 0; i < row.length; i++) {
 //                 if (row[i] === row[i+1] && row[i] !==0) {
 //                     potentialPlays += 1;
 //                 }
 //             }
 //         });
-
+// //check for vertical matches
 //     newBoard.forEach(function(rowArr, rowIdx) {
 //         row = newBoard[rowIdx];
-//             // loop through the remaining array, checking each set of items once
 //             for (let i = 0; i < row.length; i++) {
 //                 if (row[i] === row[i+1] && row[i] !==0) {
 //                     potentialPlays += 1;
 //                 }
 //             }
 //     });
-//     if (openSpaces.length = 0) {
-//         openSpaces = false;
-//     }
-
-//     if (potentialPlays.length = 0) {
-//         playsLeft = false;
-//     }
 
 
 //     console.log(potentialPlays.length);
