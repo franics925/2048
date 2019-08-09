@@ -60,7 +60,7 @@ function render() {
         });
         
     });
-    checkGameOver();
+    // checkGameOver();
 }
 
 function moveLeft() {
@@ -77,7 +77,7 @@ function moveUp() {
     console.log('Up key pressed');
     direction = 'up';
     board = rotate(board.reverse());
-    shiftRight();
+    shift();
     board = rotate(board.reverse());
     board = rotate(board.reverse());
     board = rotate(board.reverse());
@@ -167,53 +167,53 @@ function shiftRight() {
 }
 
 
-function checkGameOver() {
-    let openSpaces = [];
-    let potentialPlays = [];
-    let spaceOpen = true;
-    let playsLeft = true;
-    let newBoard = rotate(board.reverse());
+// function checkGameOver() {
+//     let openSpaces = [];
+//     let potentialPlays = [];
+//     let spaceOpen = true;
+//     let playsLeft = true;
+//     let newBoard = rotate(board.reverse());
 
-    board.forEach(function(rowArr, rowIdx) {
-        rowArr.forEach(function(cell, colIdx) {
-            if (cell === 0) {
-                openSpaces += 1;
-            }
-        });
-    });
+//     board.forEach(function(rowArr, rowIdx) {
+//         rowArr.forEach(function(cell, colIdx) {
+//             if (cell === 0) {
+//                 openSpaces += 1;
+//             }
+//         });
+//     });
 
-    board.forEach(function(rowArr, rowIdx) {
-        row = board[rowIdx];
-            // loop through the remaining array, checking each set of items once
-            for (let i = 0; i < row.length; i++) {
-                if (row[i] === row[i+1] && row[i] !==0) {
-                    potentialPlays += 1;
-                }
-            }
-        });
+//     board.forEach(function(rowArr, rowIdx) {
+//         row = board[rowIdx];
+//             // loop through the remaining array, checking each set of items once
+//             for (let i = 0; i < row.length; i++) {
+//                 if (row[i] === row[i+1] && row[i] !==0) {
+//                     potentialPlays += 1;
+//                 }
+//             }
+//         });
 
-    newBoard.forEach(function(rowArr, rowIdx) {
-        row = newBoard[rowIdx];
-            // loop through the remaining array, checking each set of items once
-            for (let i = 0; i < row.length; i++) {
-                if (row[i] === row[i+1] && row[i] !==0) {
-                    potentialPlays += 1;
-                }
-            }
-    });
-    if (openSpaces.length = 0) {
-        openSpaces = false;
-    }
+//     newBoard.forEach(function(rowArr, rowIdx) {
+//         row = newBoard[rowIdx];
+//             // loop through the remaining array, checking each set of items once
+//             for (let i = 0; i < row.length; i++) {
+//                 if (row[i] === row[i+1] && row[i] !==0) {
+//                     potentialPlays += 1;
+//                 }
+//             }
+//     });
+//     if (openSpaces.length = 0) {
+//         openSpaces = false;
+//     }
 
-    if (potentialPlays.length = 0) {
-        playsLeft = false;
-    }
+//     if (potentialPlays.length = 0) {
+//         playsLeft = false;
+//     }
 
 
-    console.log(potentialPlays.length);
-    console.log(openSpaces.length);
-    if (potentialPlays.length === 0 && openSpaces.length === 0) {
-        alert('Game Over');
-        init();
-    }
-}
+//     console.log(potentialPlays.length);
+//     console.log(openSpaces.length);
+//     if (potentialPlays.length === 0 && openSpaces.length === 0) {
+//         alert('Game Over');
+//         init();
+//     }
+// }
