@@ -25,7 +25,7 @@ document.onkeydown = function(event) {
     }
 };
 
-    // RESET BUTTON : TODO: CONNECT TO INIT
+
 document.querySelector('#reset').addEventListener("click", function() {
     console.log('reset button clicked');
     init();
@@ -49,9 +49,7 @@ function init() {
     render();
 }
 
-// Use DOM to make changes to visualized board
 function render() {
-    checkGameOver();
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
             let div = document.getElementById(`r${rowIdx}c${colIdx}`);
@@ -60,8 +58,9 @@ function render() {
                 div.textContent = cell;
             }
         });
-
+        
     });
+    checkGameOver();
 }
 
 function moveLeft() {
@@ -153,21 +152,15 @@ function shiftLeft() {
 function shiftRight() {
     board.forEach(function(rowArr, rowIdx) {
         row = board[rowIdx].reverse();
-        // remove all zeroes from the array
         let newArr = row.filter(num => num !== 0);
-        // loop through the remaining array, checking each set of items once
         for (let i = 0; i < newArr.length; i++) {
-            // if two numbers are the same, add them
             if (newArr[i] === newArr[i+1]) {
                 newArr[i] += newArr[i];
                 newArr[i+1] = 0;
-                // increment value of i again if there's a match, because those numbers can no longer be matched again
                 i++
             }
         }
-        // remove the sandwiched zeroes again, in order to "push" all numbers leftward
         newArr = newArr.filter(num => num !== 0);
-        // add zeroes at the end to fill the array back up to the proper size
         while (newArr.length < rowArr.length) newArr.push(0);
         board[rowIdx] = newArr.reverse();
     });
@@ -175,29 +168,52 @@ function shiftRight() {
 
 
 function checkGameOver() {
-    let openSpaces = 0;
-    let potentialPlays = 0;
+    let openSpaces = [];
+    let potentialPlays = [];
+    let spaceOpen = true;
+    let playsLeft = true;
+    let newBoard = rotate(board.reverse());
 
     board.forEach(function(rowArr, rowIdx) {
         rowArr.forEach(function(cell, colIdx) {
-            if (cell ===0) {
+            if (cell === 0) {
                 openSpaces += 1;
             }
         });
     });
-    if (openSpaces === 0 && potentialPlays === 0) {
+
+    board.forEach(function(rowArr, rowIdx) {
+        row = board[rowIdx];
+            // loop through the remaining array, checking each set of items once
+            for (let i = 0; i < row.length; i++) {
+                if (row[i] === row[i+1] && row[i] !==0) {
+                    potentialPlays += 1;
+                }
+            }
+        });
+
+    newBoard.forEach(function(rowArr, rowIdx) {
+        row = newBoard[rowIdx];
+            // loop through the remaining array, checking each set of items once
+            for (let i = 0; i < row.length; i++) {
+                if (row[i] === row[i+1] && row[i] !==0) {
+                    potentialPlays += 1;
+                }
+            }
+    });
+    if (openSpaces.length = 0) {
+        openSpaces = false;
+    }
+
+    if (potentialPlays.length = 0) {
+        playsLeft = false;
+    }
+
+
+    console.log(potentialPlays);
+    console.log(openSpaces);
+    if (!openSpaces && !playsLeft) {
         alert('Game Over');
         init();
     }
-
-    // board.forEach(function(rowArr, rowIdx) {
-    //     row = board[rowIdx];
-    //     // loop through the remaining array, checking each set of items once
-    //     for (let i = 0; i < row.length; i++) {
-    //         // if two numbers are the same, add them
-    //         if (row[i] === row[i+1]) {
-    //             potentialPlays += 1;
-    //         }
-    //     }
-    // });
 }
