@@ -11,11 +11,8 @@ html, * {
 
 body {
     display: flex;
-    /* flex-direction: column; */
     height: 80vh;
     justify-content: center;
-    /* align-items: center; */
-
 }
 
 main div p {
@@ -32,15 +29,6 @@ header {
     justify-content: space-between;
     background-color: antiquewhite;
     height: auto;
-    
-    /* 
-    width: 100vw;
-    height: 10vh;
-    margin: 1px;
-    padding: 1vmin;
-    border-width: 30px;
-    border-color: grey;
-    padding: 10px; */
 }
 
 
@@ -50,8 +38,6 @@ header {
     grid-template-rows: 13vh 13vh 13vh 13vh;
     margin: auto;
     width: 59%;
-    /* align-content: center;
-    justify-content: center; */
     border-width: 40%;
     grid-gap: 0px;
 }

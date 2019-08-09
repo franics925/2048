@@ -12,9 +12,10 @@ JavaScript, HTML, and CSS
 2. Hide values of 0
 3. Display counter for number of moves made
 4. Show player history:
-  * oAttempt Number
+  * Attempts
   * Moves Made
-  * Highest value tile achieved
+  * Highest value achieved
 5. Choose attractice color scheme
 6. Enhance CSS styling
+7. Animate the movement of the tiles
 
