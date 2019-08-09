@@ -1,0 +1,22 @@
+# 2048
+https://imgur.com/qK6VMpn
+
+![alt text](https://imgur.com/qK6VMpn "Screenshot")
+
+## - Getting Started - 
+Click (https://www.google.com "here") to play 2048.
+
+## - Technologies Used - 
+JavaScript, HTML, and CSS
+
+## - Next Steps - 
+1. Only allow introduction of a new number when other tiles move
+2. Hide values of 0
+3. Display counter for number of moves made
+4. Show player history:
+  * oAttempt Number
+  * Moves Made
+  * Highest value tile achieved
+5. Choose attractice color scheme
+6. Enhance CSS styling
+
